@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.business.model.dao.SysUserMapper">
+
+  <select id="pageList" resultType="com.business.controller.pc.vo.UserInfoVO">
+    SELECT a.id, a.user_name, a.user_img, a.recent_login_time, a.create_time, a.update_time, a.role_id,
+    b.user_name AS creator, c.user_name AS updater, d.role_name
+    FROM `user_info` AS a
+    LEFT JOIN user_info AS b ON b.id = a.create_id
+    LEFT JOIN user_info AS c ON c.id = a.update_id
+    LEFT JOIN sys_role as d  ON d.id = a.role_id
+    <where>
+      <if test="null != reqDTO.id">
+        AND a.id = #{reqDTO.id,jdbcType=BIGINT}
+      </if>
+      <if test="null != reqDTO.userName and '' != reqDTO.userName">
+        AND a.user_name LIKE #{reqDTO.userName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>
