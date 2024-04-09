@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/seo-manage
-    username: root
-    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/seo-manage
+    username: seo-manage
+    password: XTBrCSemP6pJPabf
 
   #  redis配置
   data:
