@@ -2,9 +2,11 @@ package com.business.controller.pc;
 
 import com.business.common.response.ResultVO;
 import com.business.common.vo.PageResult;
+import com.business.controller.pc.dto.ReplaceAndGenerateReqDTO;
 import com.business.controller.pc.dto.TemplateAddReqDTO;
 import com.business.controller.pc.dto.TemplatePageReqDTO;
 import com.business.controller.pc.dto.TemplateUpdateReqDTO;
+import com.business.controller.pc.vo.ReplaceResultVO;
 import com.business.controller.pc.vo.TemplateInfoVO;
 import com.business.service.ITemplateInfoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,7 +34,6 @@ public class TemplateInfoController {
         return ResultVO.success(templateInfoService.pageList(reqDTO));
     }
 
-
     @Operation(summary = "新增模板信息")
     @PostMapping("/add")
     public ResultVO<Boolean> add(@RequestBody TemplateAddReqDTO reqDTO){
@@ -52,6 +53,12 @@ public class TemplateInfoController {
     public ResultVO<Boolean> deleteById(@RequestParam("id") Long id){
         templateInfoService.removeById(id);
         return ResultVO.success(true);
+    }
+
+    @Operation(summary = "替换并生成Excel")
+    @PostMapping("/replaceAndGenerate")
+    public ResultVO<ReplaceResultVO> replaceAndGenerate(@RequestBody ReplaceAndGenerateReqDTO reqDTO){
+        return templateInfoService.replaceAndGenerate(reqDTO);
     }
 
 }

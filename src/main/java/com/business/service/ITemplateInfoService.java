@@ -3,9 +3,11 @@ package com.business.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.business.common.response.ResultVO;
 import com.business.common.vo.PageResult;
+import com.business.controller.pc.dto.ReplaceAndGenerateReqDTO;
 import com.business.controller.pc.dto.TemplateAddReqDTO;
 import com.business.controller.pc.dto.TemplatePageReqDTO;
 import com.business.controller.pc.dto.TemplateUpdateReqDTO;
+import com.business.controller.pc.vo.ReplaceResultVO;
 import com.business.controller.pc.vo.TemplateInfoVO;
 import com.business.model.pojo.TemplateInfo;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,5 +39,12 @@ public interface ITemplateInfoService extends IService<TemplateInfo> {
      * @return
      */
     ResultVO<Boolean> update(TemplateUpdateReqDTO reqDTO);
+
+    /**
+     * 替换并生成Excel
+     * @param reqDTO
+     * @return
+     */
+    ResultVO<ReplaceResultVO> replaceAndGenerate(ReplaceAndGenerateReqDTO reqDTO);
 
 }

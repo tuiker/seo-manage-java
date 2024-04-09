@@ -30,4 +30,10 @@ public class TemplateInfo extends BaseEntity {
     /** 模板关键词 */
     private String templateKeyword;
 
+    /** 替换关键字并生成的Excel中的行数 */
+    private Integer total;
+
+    /** 替换关键字并生成的Excel文件路径 */
+    private String filePath;
+
 }
