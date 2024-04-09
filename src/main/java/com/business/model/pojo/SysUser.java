@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@TableName("user_info")
+@TableName("sys_user")
 @Schema(title = "用户实体")
 public class SysUser {
     /**

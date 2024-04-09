@@ -60,10 +60,10 @@ CREATE TABLE `seo-manage`.`sys_role_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for user_info
+-- Table structure for sys_user
 -- ----------------------------
-DROP TABLE IF EXISTS `seo-manage`.`user_info`;
-CREATE TABLE `seo-manage`.`user_info`  (
+DROP TABLE IF EXISTS `seo-manage`.`sys_user`;
+CREATE TABLE `seo-manage`.`sys_user`  (
                                                     `id` bigint NOT NULL COMMENT '用户ID',
                                                     `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户名称',
                                                     `user_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户头像',
@@ -79,8 +79,23 @@ CREATE TABLE `seo-manage`.`user_info`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of user_info
+-- Records of sys_user
 -- ----------------------------
-INSERT INTO `seo-manage`.`user_info` VALUES (1, 'Admin', 'https://h5.cajbook.com/image/head/1.png', '96e79218965eb72c92a549dd5a330112', '2023-12-04 13:14:27', 0, '2023-11-10 11:51:26', 0, '2023-11-10 11:51:32', 1, 1);
+INSERT INTO `seo-manage`.`sys_user` VALUES (1, 'Admin', 'https://h5.cajbook.com/image/head/1.png', '96e79218965eb72c92a549dd5a330112', '2023-12-04 13:14:27', 0, '2023-11-10 11:51:26', 0, '2023-11-10 11:51:32', 1, 1);
+
+CREATE TABLE `seo-manage`.`template_info` (
+                                 `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+                                 `template_title` varchar(300) NOT NULL COMMENT '模板标题',
+                                 `template_desc` varchar(1000) NOT NULL COMMENT '模板描述',
+                                 `template_keyword` varchar(300) NOT NULL COMMENT '模板关键字',
+                                 `total` int DEFAULT NULL COMMENT '替换关键字并生成的Excel中的行数',
+                                 `file_path` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '替换关键字并生成的Excel文件路径',
+                                 `create_id` bigint NOT NULL COMMENT '创建人ID',
+                                 `create_time` datetime NOT NULL COMMENT '创建时间',
+                                 `update_id` bigint DEFAULT NULL COMMENT '修改人ID',
+                                 `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+                                 PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='模板信息表';
+
 
 SET FOREIGN_KEY_CHECKS = 1;
