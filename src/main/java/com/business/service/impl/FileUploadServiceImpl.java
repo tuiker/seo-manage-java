@@ -61,9 +61,6 @@ public class FileUploadServiceImpl implements IFileUploadService {
                 String path = filePath + folderPath;
                 //文件名 普通地址 命名方式:时间-数字-描述
                 String newFileName = sdf.format(new Date()) + "-" + (i + 1) + extension;
-                if (StringUtils.isNotBlank(gameName)) {
-                    newFileName = gameName+ extension;
-                }
                 File targetFile = new File(path, newFileName);
                 if (targetFile.exists()) {//已存在，进行删除，解决问题：同一个名称的APK包重复上传报错：Cannot write uploaded file to disk!
                     targetFile.delete();

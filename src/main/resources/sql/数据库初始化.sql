@@ -99,4 +99,13 @@ CREATE TABLE `seo-manage`.`template_info` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='模板信息表';
 
 
+CREATE TABLE `seo-manage`.`blog_generation_record` (
+                                          `id` int NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+                                          `download_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '博客Excel下载地址',
+                                          `create_time` datetime NOT NULL COMMENT '创建时间',
+                                          `create_id` bigint NOT NULL COMMENT '创建人ID',
+                                          PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='博客生成记录表';
+
+
 SET FOREIGN_KEY_CHECKS = 1;

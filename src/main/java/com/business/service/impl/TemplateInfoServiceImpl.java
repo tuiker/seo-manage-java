@@ -99,7 +99,7 @@ public class TemplateInfoServiceImpl extends ServiceImpl<TemplateInfoMapper, Tem
     public ResultVO<ReplaceResultVO> replaceAndGenerate(ReplaceAndGenerateReqDTO reqDTO) {
         String keywordExcelPath = reqDTO.getKeywordExcelPath();
         if(!active.equals("dev")){//将网址替换为磁盘路径
-            keywordExcelPath = keywordExcelPath.replaceAll(mobilePath, filePath);
+            keywordExcelPath = keywordExcelPath.replace(mobilePath, filePath);
         }
         if(!FileUtil.exist(keywordExcelPath)){
             return ResultVO.error("文件不存在");
@@ -134,7 +134,7 @@ public class TemplateInfoServiceImpl extends ServiceImpl<TemplateInfoMapper, Tem
         //写入数据
         String pathName = folderPath + newFileName;
         EasyExcel.write(pathName, ReplaceExportData.class)
-                .sheet("测试")
+                .sheet("dataInfo")
                 .doWrite(exportDataList);
 
         //将磁盘路径替换为网址

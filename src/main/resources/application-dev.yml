@@ -60,6 +60,16 @@ server:
 
 lanBo:
   mobile:
-    path: http://192.168.0.27:8081/seo-manage-java/
+    path: http://192.168.0.167:8081/seo-manage-java/
   file:
     path: D:\code\java_project\seo-manage-java\
+
+# 千帆大模型AI请求地址
+ai:
+  grantType: client_credentials
+  clientId: 1g2Gep4Bn2HKIbFhi6NLbCaQ
+  clientSecret: 67g3nhGMQRJPrPjWItLnJDtaAmpfpB32
+  # 获取accessToken
+  getAccessToken: https://aip.baidubce.com/oauth/2.0/token?grant_type=%s&client_id=%s&client_secret=%s
+  # 基于ERNIE-Speed-8K创建对话
+  chat-ERNIE-Speed-8K: https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie_speed
