@@ -16,6 +16,9 @@ public class BlogGenerationRecordVO {
     @Schema(title = "ID", description = "ID", name = "id")
     private Long id;
 
+    @Schema(title = "生成描述", description = "生成描述", name = "generateDesc")
+    private String generateDesc;
+
     @Schema(title = "博客Excel下载地址", description = "博客Excel下载地址", name = "downloadUrl")
     private String downloadUrl;
 

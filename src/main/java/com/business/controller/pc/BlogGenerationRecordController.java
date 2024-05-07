@@ -102,6 +102,7 @@ public class BlogGenerationRecordController {
         BlogGenerationRecord record = new BlogGenerationRecord();
         record.setCreateId(loginUserId);
         record.setCreateTime(LocalDateTime.now());
+        record.setGenerateDesc(reqDTO.getGenerateDesc());
         blogGenerationRecordService.save(record);
 
         //初始化博客生成进度条

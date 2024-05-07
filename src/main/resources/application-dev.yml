@@ -60,7 +60,7 @@ server:
 
 lanBo:
   mobile:
-    path: http://192.168.0.167:8081/seo-manage-java/
+    path: http://192.168.0.164:8081/seo-manage-java/
   file:
     path: D:\code\java_project\seo-manage-java\
 

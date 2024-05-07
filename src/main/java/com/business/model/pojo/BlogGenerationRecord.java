@@ -22,6 +22,9 @@ public class BlogGenerationRecord{
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    /** 生成描述 */
+    private String generateDesc;
+
     /** 博客Excel下载地址 */
     private String downloadUrl;
 
